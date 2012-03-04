@@ -94,7 +94,6 @@
     position: absolute;
     top: 0;
     background-color: black;
-    z-index: -1;
   }
 
   footer {
@@ -198,6 +197,9 @@
       var keyVal = e.split('=');
       Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
     });
+  // Specific params handling
+    if (!+this.params.autoplay)
+      $$.forEach($$("video"), function(v){ v.controls = true });
   }
 
   Dz.onkeydown = function(aEvent) {
